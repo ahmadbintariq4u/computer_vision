@@ -1,0 +1,16 @@
+import cv2 as cv
+
+img=cv.imread('5.png')
+copy=img.copy()
+crop=img[0:100,0:img.shape[1]]
+crop[:,:]=(128,0,0)
+index=0
+
+for i in range(100,img.shape[0]):
+    sh=copy.copy()
+    sh[index:i,0:img.shape[1]]=crop
+    cv.imshow("crip",sh)
+    cv.waitKey(1)
+    index+=1
+    print("i {} and index {}".format(i,index))
+
